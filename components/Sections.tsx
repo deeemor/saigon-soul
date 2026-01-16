@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, useEffect } from 'react';
 import { Play, Quote, Star, MapPin, Clock, ChevronLeft, ChevronRight, X, Flame, Info, Phone, Instagram, Facebook, Heart, Plus, Minus, Mail, ArrowRight, ZoomIn } from 'lucide-react';
 import { useLanguage } from './LanguageContext';

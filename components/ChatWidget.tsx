@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageCircle, X, Flower2, ArrowUp } from 'lucide-react';
 import { useLanguage } from './LanguageContext';

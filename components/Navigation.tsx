@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect, useState } from 'react';
 import { Menu, X, Instagram, Facebook } from 'lucide-react';
 import { useLanguage } from './LanguageContext';
