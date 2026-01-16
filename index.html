@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Saigon Soul | The Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        wood: {
+                            DEFAULT: '#8C4014', 
+                            dark: '#38180A',    
+                            light: '#C9A685',
+                            50: '#F5F2EF'
+                        },
+                        amber: {
+                            DEFAULT: '#D98E34', 
+                            soft: '#EBD4BC'
+                        },
+                        cream: '#FAFAF7', 
+                        stone: '#EBEBE6'
+                    },
+                    boxShadow: {
+                        'soft': '0 20px 60px -15px rgba(56, 24, 10, 0.08)',
+                        'glow': '0 0 40px -10px rgba(217, 142, 52, 0.3)',
+                        'float': '0 10px 40px -10px rgba(0,0,0,0.15)'
+                    },
+                    letterSpacing: {
+                        'cinema': '0.3em'
+                    },
+                    borderRadius: {
+                        '4xl': '2.5rem'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* --- Texture & Base --- */
+        .bg-texture {
+            background-color: #FAFAF7;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+        }
+        
+        body { font-family: 'Manrope', sans-serif; -webkit-font-smoothing: antialiased; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        /* --- Utilities --- */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* --- Animations --- */
+        .reveal-up { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-up.is-visible { opacity: 1; transform: translateY(0); }
+        
+        .reveal-img { opacity: 0; transform: scale(1.05); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-img.is-visible { opacity: 1; transform: scale(1); }
+
+        .hover-lift { transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        .hover-lift:hover { transform: translateY(-6px); }
+
+        /* --- Chatbot Specific --- */
+        .chat-enter { animation: chatSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .chat-exit { animation: chatSlideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        
+        @keyframes chatSlideUp {
+            from { opacity: 0; transform: translateY(20px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        
+        @keyframes chatSlideDown {
+            from { opacity: 1; transform: translateY(0) scale(1); }
+            to { opacity: 0; transform: translateY(20px) scale(0.95); pointer-events: none; }
+        }
+
+        .typing-dot { animation: typing 1.4s infinite ease-in-out both; }
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+        
+        @keyframes typing {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        /* --- Marquee/Cinematic --- */
+        @keyframes subtle-drift {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+        .animate-drift { animation: subtle-drift 20s infinite ease-in-out; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-texture text-wood-dark antialiased pb-24 md:pb-0 selection:bg-amber/20 selection:text-wood-dark">
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
