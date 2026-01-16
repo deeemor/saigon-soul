@@ -17,7 +17,7 @@ import {
     ReservationSection, 
     Footer 
 } from './components/Sections';
-
+import { Analytics } from "@vercel/analytics/next"
 const Content: React.FC = () => {
     useEffect(() => {
         const observerOptions = {
@@ -73,6 +73,7 @@ const App: React.FC = () => {
     return (
         <LanguageProvider>
             <Content />
+            <Analytics/>
         </LanguageProvider>
     );
 };
